@@ -1,0 +1,11 @@
+200
+{ "head": {
+    "vars": [ "s" ]
+  } ,
+  "results": {
+    "bindings": [
+      { 
+      }
+    ]
+  }
+}

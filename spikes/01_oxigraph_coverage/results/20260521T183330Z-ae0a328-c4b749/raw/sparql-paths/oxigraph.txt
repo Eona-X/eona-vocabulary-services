@@ -1,0 +1,2 @@
+200
+{"head":{"vars":["x"]},"results":{"bindings":[{"x":{"type":"uri","value":"https://eona.example/voc/cat"}},{"x":{"type":"uri","value":"https://eona.example/voc/mammal"}}]}}

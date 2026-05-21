@@ -1,0 +1,4 @@
+200
+<https://eona.example/voc/animal> a <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://eona.example/voc/cat> a <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://eona.example/voc/mammal> a <http://www.w3.org/2004/02/skos/core#Concept> .

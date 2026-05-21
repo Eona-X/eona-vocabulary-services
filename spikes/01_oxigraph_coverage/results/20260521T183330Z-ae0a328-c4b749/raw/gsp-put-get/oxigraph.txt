@@ -1,0 +1,5 @@
+PUT 201
+
+---
+GET 200
+<https://eona.example/voc/gsp-marker> <https://eona.example/voc/writtenVia> "GSP PUT" .

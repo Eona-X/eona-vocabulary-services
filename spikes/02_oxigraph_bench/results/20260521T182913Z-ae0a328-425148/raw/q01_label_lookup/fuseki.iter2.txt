@@ -1,0 +1,13 @@
+200
+{ "head": {
+    "vars": [ "c" , "label" ]
+  } ,
+  "results": {
+    "bindings": [
+      { 
+        "c": { "type": "uri" , "value": "https://eona.example/bulk/c12345" } ,
+        "label": { "type": "literal" , "xml:lang": "en" , "value": "concept-12345" }
+      }
+    ]
+  }
+}

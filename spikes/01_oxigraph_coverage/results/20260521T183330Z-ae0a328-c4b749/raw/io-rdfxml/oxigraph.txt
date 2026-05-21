@@ -1,0 +1,6 @@
+200
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:its="http://www.w3.org/2005/11/its">
+	<Concept xmlns="http://www.w3.org/2004/02/skos/core#" rdf:about="https://eona.example/voc/animal">
+	</Concept>
+</rdf:RDF>
