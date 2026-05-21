@@ -1,0 +1,2 @@
+200
+{"head":{"vars":["o","p","s"]},"results":{"bindings":[{"o":{"type":"uri","value":"http://www.w3.org/2004/02/skos/core#Concept"},"p":{"type":"uri","value":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type"},"s":{"type":"uri","value":"https://eona.example/bulk/c19707"}}]}}

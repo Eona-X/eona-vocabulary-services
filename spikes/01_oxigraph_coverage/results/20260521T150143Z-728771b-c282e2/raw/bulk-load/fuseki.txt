@@ -1,0 +1,6 @@
+200
+{ 
+  "count" : 100000 ,
+  "tripleCount" : 100000 ,
+  "quadCount" : 0
+}

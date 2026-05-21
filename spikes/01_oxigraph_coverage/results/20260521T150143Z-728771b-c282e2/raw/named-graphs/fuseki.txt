@@ -1,0 +1,13 @@
+200
+{ "head": {
+    "vars": [ "g" , "n" ]
+  } ,
+  "results": {
+    "bindings": [
+      { 
+        "g": { "type": "uri" , "value": "https://eona.example/graphs/probe-c07" } ,
+        "n": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "1" }
+      }
+    ]
+  }
+}

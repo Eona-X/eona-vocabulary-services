@@ -1,0 +1,37 @@
+200
+PREFIX ex:   <https://eona.example/bulk/>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sh:   <http://www.w3.org/ns/shacl#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+ex:c502  rdf:type        skos:Concept;
+        skos:broader     ex:c100;
+        skos:definition  "synthetic concept #502"@en;
+        skos:inScheme    ex:scheme;
+        skos:prefLabel   "concept-502"@en .
+
+ex:c501  rdf:type        skos:Concept;
+        skos:broader     ex:c100;
+        skos:definition  "synthetic concept #501"@en;
+        skos:inScheme    ex:scheme;
+        skos:prefLabel   "concept-501"@en .
+
+ex:c500  rdf:type        skos:Concept;
+        skos:broader     ex:c100;
+        skos:definition  "synthetic concept #500"@en;
+        skos:inScheme    ex:scheme;
+        skos:prefLabel   "concept-500"@en .
+
+ex:c503  rdf:type        skos:Concept;
+        skos:broader     ex:c100;
+        skos:definition  "synthetic concept #503"@en;
+        skos:inScheme    ex:scheme;
+        skos:prefLabel   "concept-503"@en .
+
+ex:c504  rdf:type        skos:Concept;
+        skos:broader     ex:c100;
+        skos:definition  "synthetic concept #504"@en;
+        skos:inScheme    ex:scheme;
+        skos:prefLabel   "concept-504"@en .

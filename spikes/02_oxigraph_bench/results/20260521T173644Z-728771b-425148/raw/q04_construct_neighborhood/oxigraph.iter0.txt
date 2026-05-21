@@ -1,0 +1,26 @@
+200
+<https://eona.example/bulk/c503> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://eona.example/bulk/c503> <http://www.w3.org/2004/02/skos/core#broader> <https://eona.example/bulk/c100> .
+<https://eona.example/bulk/c503> <http://www.w3.org/2004/02/skos/core#definition> "synthetic concept #503"@en .
+<https://eona.example/bulk/c503> <http://www.w3.org/2004/02/skos/core#prefLabel> "concept-503"@en .
+<https://eona.example/bulk/c503> <http://www.w3.org/2004/02/skos/core#inScheme> <https://eona.example/bulk/scheme> .
+<https://eona.example/bulk/c504> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://eona.example/bulk/c504> <http://www.w3.org/2004/02/skos/core#broader> <https://eona.example/bulk/c100> .
+<https://eona.example/bulk/c504> <http://www.w3.org/2004/02/skos/core#definition> "synthetic concept #504"@en .
+<https://eona.example/bulk/c504> <http://www.w3.org/2004/02/skos/core#prefLabel> "concept-504"@en .
+<https://eona.example/bulk/c504> <http://www.w3.org/2004/02/skos/core#inScheme> <https://eona.example/bulk/scheme> .
+<https://eona.example/bulk/c501> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://eona.example/bulk/c501> <http://www.w3.org/2004/02/skos/core#broader> <https://eona.example/bulk/c100> .
+<https://eona.example/bulk/c501> <http://www.w3.org/2004/02/skos/core#definition> "synthetic concept #501"@en .
+<https://eona.example/bulk/c501> <http://www.w3.org/2004/02/skos/core#prefLabel> "concept-501"@en .
+<https://eona.example/bulk/c501> <http://www.w3.org/2004/02/skos/core#inScheme> <https://eona.example/bulk/scheme> .
+<https://eona.example/bulk/c500> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://eona.example/bulk/c500> <http://www.w3.org/2004/02/skos/core#broader> <https://eona.example/bulk/c100> .
+<https://eona.example/bulk/c500> <http://www.w3.org/2004/02/skos/core#definition> "synthetic concept #500"@en .
+<https://eona.example/bulk/c500> <http://www.w3.org/2004/02/skos/core#prefLabel> "concept-500"@en .
+<https://eona.example/bulk/c500> <http://www.w3.org/2004/02/skos/core#inScheme> <https://eona.example/bulk/scheme> .
+<https://eona.example/bulk/c502> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://eona.example/bulk/c502> <http://www.w3.org/2004/02/skos/core#broader> <https://eona.example/bulk/c100> .
+<https://eona.example/bulk/c502> <http://www.w3.org/2004/02/skos/core#definition> "synthetic concept #502"@en .
+<https://eona.example/bulk/c502> <http://www.w3.org/2004/02/skos/core#prefLabel> "concept-502"@en .
+<https://eona.example/bulk/c502> <http://www.w3.org/2004/02/skos/core#inScheme> <https://eona.example/bulk/scheme> .

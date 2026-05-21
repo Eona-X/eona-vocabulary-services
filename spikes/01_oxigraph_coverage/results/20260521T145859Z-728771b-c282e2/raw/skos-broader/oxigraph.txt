@@ -1,0 +1,2 @@
+200
+{"head":{"vars":["ancestor"]},"results":{"bindings":[{"ancestor":{"type":"uri","value":"https://eona.example/voc/animal"}},{"ancestor":{"type":"uri","value":"https://eona.example/voc/mammal"}}]}}

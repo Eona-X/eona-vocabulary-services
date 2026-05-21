@@ -1,0 +1,2 @@
+406
+The accept header does not provide any accepted format like application/n-quads or text/turtle

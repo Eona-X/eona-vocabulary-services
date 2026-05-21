@@ -1,0 +1,27 @@
+200
+{ "head": {
+    "vars": [ "ancestor" ]
+  } ,
+  "results": {
+    "bindings": [
+      { 
+        "ancestor": { "type": "uri" , "value": "https://eona.example/bulk/c1000" }
+      } ,
+      { 
+        "ancestor": { "type": "uri" , "value": "https://eona.example/bulk/c200" }
+      } ,
+      { 
+        "ancestor": { "type": "uri" , "value": "https://eona.example/bulk/c40" }
+      } ,
+      { 
+        "ancestor": { "type": "uri" , "value": "https://eona.example/bulk/c8" }
+      } ,
+      { 
+        "ancestor": { "type": "uri" , "value": "https://eona.example/bulk/c1" }
+      } ,
+      { 
+        "ancestor": { "type": "uri" , "value": "https://eona.example/bulk/c0" }
+      }
+    ]
+  }
+}

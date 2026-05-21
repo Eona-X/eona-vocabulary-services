@@ -1,0 +1,18 @@
+200
+{ "head": {
+    "vars": [ "c" ]
+  } ,
+  "results": {
+    "bindings": [
+      { 
+        "c": { "type": "uri" , "value": "https://eona.example/voc/animal" }
+      } ,
+      { 
+        "c": { "type": "uri" , "value": "https://eona.example/voc/cat" }
+      } ,
+      { 
+        "c": { "type": "uri" , "value": "https://eona.example/voc/mammal" }
+      }
+    ]
+  }
+}

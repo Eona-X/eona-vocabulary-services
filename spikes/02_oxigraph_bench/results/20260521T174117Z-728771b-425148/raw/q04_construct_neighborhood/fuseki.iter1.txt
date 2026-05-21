@@ -1,0 +1,33 @@
+200
+PREFIX ex:   <https://eona.example/bulk/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+ex:c504  a               skos:Concept;
+        skos:broader     ex:c100;
+        skos:definition  "synthetic concept #504"@en;
+        skos:inScheme    ex:scheme;
+        skos:prefLabel   "concept-504"@en .
+
+ex:c503  a               skos:Concept;
+        skos:broader     ex:c100;
+        skos:definition  "synthetic concept #503"@en;
+        skos:inScheme    ex:scheme;
+        skos:prefLabel   "concept-503"@en .
+
+ex:c502  a               skos:Concept;
+        skos:broader     ex:c100;
+        skos:definition  "synthetic concept #502"@en;
+        skos:inScheme    ex:scheme;
+        skos:prefLabel   "concept-502"@en .
+
+ex:c501  a               skos:Concept;
+        skos:broader     ex:c100;
+        skos:definition  "synthetic concept #501"@en;
+        skos:inScheme    ex:scheme;
+        skos:prefLabel   "concept-501"@en .
+
+ex:c500  a               skos:Concept;
+        skos:broader     ex:c100;
+        skos:definition  "synthetic concept #500"@en;
+        skos:inScheme    ex:scheme;
+        skos:prefLabel   "concept-500"@en .

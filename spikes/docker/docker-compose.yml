@@ -1,0 +1,63 @@
+# Two variants selected via Docker Compose profiles:
+#
+#   tmpfs  — engine-only: Fuseki --mem (in-memory) + Oxigraph on tmpfs
+#   disk   — deployment-realistic: Fuseki TDB2 on volume + Oxigraph RocksDB on volume
+#
+# Only one variant is up at a time; both bind the same container names so
+# the spike harness can stay agnostic of the variant in URLs but tags the
+# variant in every manifest.
+#
+#   docker compose --profile tmpfs up -d
+#   docker compose --profile disk  up -d
+
+services:
+  # ---- tmpfs profile ----------------------------------------------------
+  fuseki-mem:
+    profiles: ["tmpfs"]
+    image: stain/jena-fuseki:5.0.0
+    container_name: adr004-fuseki
+    environment:
+      ADMIN_PASSWORD: admin
+      JVM_ARGS: "-Xmx2g"
+    ports:
+      - "3030:3030"
+    command: ["/jena-fuseki/fuseki-server", "--mem", "--update", "/ds"]
+
+  oxigraph-tmpfs:
+    profiles: ["tmpfs"]
+    image: ghcr.io/oxigraph/oxigraph:0.4.7
+    container_name: adr004-oxigraph
+    ports:
+      - "7878:7878"
+    command: ["serve", "--location=/data", "--bind=0.0.0.0:7878"]
+    tmpfs:
+      - /data
+
+  # ---- disk profile -----------------------------------------------------
+  fuseki-tdb2:
+    profiles: ["disk"]
+    image: stain/jena-fuseki:5.0.0
+    container_name: adr004-fuseki
+    environment:
+      ADMIN_PASSWORD: admin
+      JVM_ARGS: "-Xmx2g"
+    ports:
+      - "3030:3030"
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["mkdir -p /fuseki/db && exec /jena-fuseki/fuseki-server --tdb2 --update --loc=/fuseki/db /ds"]
+    volumes:
+      - fuseki-tdb2:/fuseki
+
+  oxigraph-disk:
+    profiles: ["disk"]
+    image: ghcr.io/oxigraph/oxigraph:0.4.7
+    container_name: adr004-oxigraph
+    ports:
+      - "7878:7878"
+    command: ["serve", "--location=/data", "--bind=0.0.0.0:7878"]
+    volumes:
+      - oxigraph-disk:/data
+
+volumes:
+  fuseki-tdb2:
+  oxigraph-disk:

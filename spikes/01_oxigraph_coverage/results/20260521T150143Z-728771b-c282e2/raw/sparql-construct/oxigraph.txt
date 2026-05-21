@@ -1,0 +1,6 @@
+200
+<https://eona.example/bulk/c19707> a <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://eona.example/bulk/c11735> a <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://eona.example/bulk/c7424> a <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://eona.example/bulk/c15235> a <http://www.w3.org/2004/02/skos/core#Concept> .
+<https://eona.example/bulk/c13454> a <http://www.w3.org/2004/02/skos/core#Concept> .

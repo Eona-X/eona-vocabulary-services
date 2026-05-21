@@ -1,0 +1,6 @@
+200
+<https://eona.example/voc/cat> a <http://www.w3.org/2004/02/skos/core#Concept> ;
+	<http://www.w3.org/2004/02/skos/core#broader> <https://eona.example/voc/mammal> ;
+	<http://www.w3.org/2004/02/skos/core#definition> "A small domesticated carnivorous mammal."@en ;
+	<http://www.w3.org/2004/02/skos/core#prefLabel> "cat"@en ;
+	<http://www.w3.org/2004/02/skos/core#inScheme> <https://eona.example/voc/Scheme> .

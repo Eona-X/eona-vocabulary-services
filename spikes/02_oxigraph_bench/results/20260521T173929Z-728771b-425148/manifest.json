@@ -1,0 +1,81 @@
+{
+  "schema": "adr-004-spike-manifest/v1",
+  "run_id": "20260521T173929Z-728771b-425148",
+  "spike": "02_oxigraph_bench",
+  "started_at": "2026-05-21T17:39:29Z",
+  "finished_at": null,
+  "git": {
+    "sha": "728771b81cd91fce1493ff5882278830e2f8ecc5",
+    "branch": "impl/adr-004",
+    "dirty": true
+  },
+  "host": {
+    "hostname": "mainworkws",
+    "os": "Linux 6.8.0-117-generic",
+    "cpu_count": 22,
+    "mem_total_gb": 93.74
+  },
+  "python": "3.12.3",
+  "tools": {
+    "pyoxigraph": "0.5.8",
+    "requests": "2.34.2",
+    "psutil": "7.2.2"
+  },
+  "inputs": {
+    "kind": "public-reference",
+    "files": [
+      {
+        "path": "/home/nico/wspace/eona/eona_vocabulary_services/spikes/02_oxigraph_bench/inputs/bulk-skos.nt",
+        "sha256": "f29d952674daf6a1cb7862d99206ee91c2fd32b5debf0a49968829a889f40adb",
+        "size": 11696709
+      },
+      {
+        "path": "/home/nico/wspace/eona/eona_vocabulary_services/spikes/02_oxigraph_bench/queries/q01_label_lookup.rq",
+        "sha256": "d8a115c19cc1a4f2bcc3dc36b8fa9df732c469086d922d7b0f16ce88cc8a6631",
+        "size": 170
+      },
+      {
+        "path": "/home/nico/wspace/eona/eona_vocabulary_services/spikes/02_oxigraph_bench/queries/q02_broader_path.rq",
+        "sha256": "17cf6b1215cc3b6ade523fee338a4eb46e89f34d8344dad8d701a4d2e56cc9f5",
+        "size": 154
+      },
+      {
+        "path": "/home/nico/wspace/eona/eona_vocabulary_services/spikes/02_oxigraph_bench/queries/q03_scheme_enum.rq",
+        "sha256": "e2672603d0985e6f63703bb3ebe0cdef3fb0025a2916a7d35809d9e6193bc49c",
+        "size": 107
+      },
+      {
+        "path": "/home/nico/wspace/eona/eona_vocabulary_services/spikes/02_oxigraph_bench/queries/q04_construct_neighborhood.rq",
+        "sha256": "f7bb87d46387156b8c3c05ae4036345f79425291e866373aa703f91401ae312c",
+        "size": 162
+      },
+      {
+        "path": "/home/nico/wspace/eona/eona_vocabulary_services/spikes/02_oxigraph_bench/queries/q05_narrower_closure.rq",
+        "sha256": "b2194cd7f44bf966fc90b2fc9bbd8f1050e6b2b0196ec34c31af4f2230dd2105",
+        "size": 152
+      },
+      {
+        "path": "/home/nico/wspace/eona/eona_vocabulary_services/spikes/02_oxigraph_bench/queries/q06_named_graph.rq",
+        "sha256": "402ab6effe22254cc78a87e8aca4a2bdd2a95ca39ea1e4a7c2b49ffece685d42",
+        "size": 56
+      },
+      {
+        "path": "/home/nico/wspace/eona/eona_vocabulary_services/spikes/02_oxigraph_bench/queries/q07_update_insert.ru",
+        "sha256": "24f1074a9a2402e2f43c5ef2ae136160cdbf607c6c5a82c911d405bf90ea97cc",
+        "size": 82
+      },
+      {
+        "path": "/home/nico/wspace/eona/eona_vocabulary_services/spikes/02_oxigraph_bench/queries/q08_ask.rq",
+        "sha256": "f8048cae0823f6d9ef029a3f1e7811867db9b581a1d4fb8ecc3912d8a9df8db4",
+        "size": 78
+      }
+    ]
+  },
+  "args": {
+    "warmup": 3,
+    "timed": 50,
+    "triples": 100000,
+    "variant": "disk"
+  },
+  "notes": "Public-reference inputs (synthetic SKOS taxonomy + 8 hub-shaped queries). Variant: disk \u2014 Fuseki TDB2 on volume + Oxigraph RocksDB on volume (deployment-realistic)"
+}
