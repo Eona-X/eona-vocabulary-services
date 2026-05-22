@@ -88,7 +88,7 @@ def bench_morph(mapping: Path, wd: Path, out: Path, scale: str, run_dir: Path) -
     t0 = time.time()
     try:
         proc = subprocess.Popen(
-            ["uv", "run", "--isolated", "--with", "morph-kgc",
+            ["uv", "run", "--isolated", "--with", "morph-kgc==2.10.0",
              "python", "-m", "morph_kgc", cfg_path],
             cwd=wd, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
         )

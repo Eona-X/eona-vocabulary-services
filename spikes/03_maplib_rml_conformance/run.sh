@@ -14,4 +14,8 @@ if [[ "${1:-}" == "--refresh-tests" ]] || [[ ! -d "$TARGET" ]]; then
   echo "$SUITE_COMMIT" > inputs/.suite_commit
 fi
 
-exec python run_suite.py
+# Morph-KGC is launched per-test via `uv run --isolated`; the spike's own
+# venv has uv installed at spikes/venv/bin, but it isn't on PATH by
+# default. Prepend it so run_suite.py's subprocess.run(["uv", ...]) works.
+export PATH="$(cd .. && pwd)/venv/bin:$PATH"
+exec ../.venv/bin/python run_suite.py

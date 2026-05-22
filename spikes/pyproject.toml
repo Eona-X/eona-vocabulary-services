@@ -9,7 +9,7 @@ dependencies = [
     "psutil>=5.9",
     "rdflib>=7.0",
     "pyyaml>=6.0",
-    "maplib>=0.13 ; platform_system != 'Windows'",
+    "maplib==0.20.18 ; platform_system != 'Windows'",
 ]
 
 # morph-kgc lives in its own env: it pins pyoxigraph<0.4 and rdflib<7,

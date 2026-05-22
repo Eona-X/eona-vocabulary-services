@@ -22,7 +22,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "maplib", marker = "sys_platform != 'win32'", specifier = ">=0.13" },
+    { name = "maplib", marker = "sys_platform != 'win32'", specifier = "==0.20.18" },
     { name = "psutil", specifier = ">=5.9" },
     { name = "pyoxigraph", specifier = ">=0.4" },
     { name = "pyyaml", specifier = ">=6.0" },
