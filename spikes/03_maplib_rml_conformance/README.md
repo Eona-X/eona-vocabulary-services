@@ -43,6 +43,28 @@ investment. Discarded.
 
 Full per-test rossete-pp results: `results/20260521T224014Z-994f575-eb50a7/`.
 
+**MappingLoom-rs** (RMLio/mappingloom-rs v0.6.1, Oct 2025) — Rust
+crate from the RML.io group, surfaced as a "potential candidate" for
+the L3 swap. Rejected on category, not quality:
+
+- **Not a materialisation engine.** Per the README it is "a framework
+  to implement your own multilingual mapping engines based on mapping
+  algebra." The CLI (`translator-bin file <RML_DOCUMENT>`) emits a
+  `.dot` mapping-plan graph; there is no `-o`/`-s` flag and no RDF
+  output path. It cannot run this spike's diff harness (nothing to
+  canonicalise) and it cannot run spike 4 (nothing to time).
+- **Partial RML support by design.** Joins, conditionals, functions,
+  and autoincrements are documented as unsupported even at the algebra
+  level. JSON/XML/SQL logical sources aren't documented as working.
+- **Wrong layer for L3.** L3 is "materialise RML to RDF on a schedule";
+  mappingloom-rs is an analysis/translation library. Adopting it would
+  mean writing the materialisation backend ourselves — i.e. the same
+  multi-engineer-month investment as taking ownership of rossete-rdf,
+  with no head start over picking up Maplib.
+
+Discarded — kept in this list so future reviewers don't re-evaluate it
+as an engine.
+
 ## Engines compared in the live spike
 
 - **Morph-KGC** (Python, the current L3 ETL incumbent)
