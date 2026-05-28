@@ -1,10 +1,11 @@
-# Eona Vocabulary Services — L1/L2 bootstrap
+# Eona Vocabulary Services — L1/L2/L4 bootstrap
 #
 # Oxigraph 0.5.8 (RocksDB persistent backend) — per ADR-004 §1.
-# Single service for now; API, mapping, virtualization layers added later.
+# Prez 4.23.6 — L4 generated explorer fasttrack — per ADR-005.
 #
 #   docker compose up -d
 #   curl http://localhost:7878/query --data-urlencode 'query=SELECT * WHERE { ?s ?p ?o } LIMIT 1'
+#   open http://localhost:8000/
 
 services:
   oxigraph:
@@ -40,6 +41,29 @@ services:
     # probes are the cleaner long-term answer).
     healthcheck:
       disable: true
+
+  # Prez — read-only Linked Data API + HTML explorer driven by SPARQL + profiles.
+  # ADR-005 fasttrack: provides catalog / vocabulary / concept / class pages and
+  # HTML/RDF content negotiation out of the box, pointing at Oxigraph.
+  #
+  # Spike scope: validate §3.5.6 baseline (term access, vocab access, conneg,
+  # multilingual labels) before committing to Option E over custom Option D.
+  prez:
+    image: ghcr.io/rdflib/prez:4.23.6
+    container_name: eona-prez
+    restart: unless-stopped
+    depends_on:
+      - oxigraph
+    ports:
+      - "8000:8000"
+    environment:
+      SPARQL_REPO_TYPE: "remote"
+      SPARQL_ENDPOINT: "http://oxigraph:7878/query"
+      # SYSTEM_URI is the externally-visible base for IRIs Prez mints/links.
+      # Override in deployment; localhost is fine for the spike.
+      SYSTEM_URI: "http://localhost:8000"
+      LISTEN_PORT: "8000"
+      LOG_LEVEL: "INFO"
 
 volumes:
   oxigraph-data:
