@@ -72,9 +72,10 @@ cd eona_vocabulary_services
 
 ## Documentation
 
-See the [`docs/`](./docs) directory for architecture decisions and usage
-guides, including
-[ADR-001: Triplestore stack selection](./001-triplestore-stack-selection.md).
+See the [`docs/adr/`](./docs/adr) directory for architecture decisions, including:
+- [ADR-001: Triplestore selection](./docs/adr/001-triplestore-stack-selection.md)
+- [ADR-004: Component re-selection (Oxigraph)](./docs/adr/004-l1-l3-component-reselection.md)
+- [ADR-005: Vocabulary browser selection](./docs/adr/005-vocabulary-browser-selection.md)
 
 ---
 

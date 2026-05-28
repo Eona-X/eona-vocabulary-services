@@ -78,13 +78,14 @@ The following ADRs are anticipated but not yet written. Numbers will be assigned
 
 | Topic | Layer | Notes |
 |---|---|---|
-| Triplestore selection | L1 | **ADR-001** (existing) — recommends Fuseki; revisit candidate list (RDF4J) under the OSS lens of this ADR |
-| Semantic services engine selection | L2 | **ADR-002** (existing) — SHACL + reasoning + IRI dereferencing engines (extracted from original ADR-001) |
-| Mapping & virtualization engine | L3 | **ADR-003** (existing) — ONTOP vs. RMLMapper vs. Morph-KGC; paper's Semantic Layer realized in OSS |
+| Triplestore selection | L1 | **ADR-001** — recommends Fuseki; **ADR-004** — supersedes with Oxigraph |
+| Semantic services engine selection | L2 | **ADR-002** — SHACL + reasoning + IRI dereferencing; **ADR-004** — updates for Oxigraph |
+| Mapping & virtualization engine | L3 | **ADR-003** — ONTOP vs. Morph-KGC; **ADR-004** — keeps Morph-KGC |
+| Vocabulary browser selection | L4 | **ADR-005** — recommends Hybrid Custom SPA + pylode |
 | Mapping-asset storage | L1/L3 | Where R2RML/OBDA/CSVW manifests live and how they are versioned |
 | SHACL validation policy | L2/L6 | Ingestion-gate vs. runtime policy (engine selected in ADR-002) |
 | Reasoning strategy | L2 | OWL profile choice, materialized vs. on-demand (engine selected in ADR-002) |
-| Vocabulary authoring UI | L4 | VocBench 3, Skosmos, alternatives |
+| Vocabulary authoring UI | L4 | VocBench 3, Skosmos, alternatives (covered in ADR-005) |
 | Semantic tagging / KG-NLP | L2 | Annif and/or spaCy + DBpedia Spotlight as OSS substitutes for PoolParty's tagger |
 | IDS adapter | L5 | EDC vs. DSC vs. Trusted Connector; co-location with triplestore |
 | Ingestion pipeline | L6 | Current Python query-service; orchestration, idempotency, SHACL gating |
