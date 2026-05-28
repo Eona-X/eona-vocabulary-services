@@ -1,0 +1,10 @@
+# Spike result artifacts - regenerable, kept out of history
+spikes/*/results/**/raw/
+spikes/*/results/**/verdicts.json
+spikes/*/results/**/manifest.json
+
+# Python envs / caches
+spikes/venv/
+spikes/.venv/
+__pycache__/
+*.pyc
