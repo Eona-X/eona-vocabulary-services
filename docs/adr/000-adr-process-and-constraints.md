@@ -72,26 +72,6 @@ Each ADR states its layer and purpose in the Context section so the catalogue st
 - **Negative**: Multiple smaller ADRs instead of one omnibus document; cross-references between ADRs become essential and require discipline.
 - **Neutral**: The paper remains a reference for *roles and architecture*, not for *product choices*. ADRs may cite it as a source of requirements without inheriting its component selection.
 
-## Initial ADR backlog (informational)
-
-The following ADRs are anticipated but not yet written. Numbers will be assigned when authored.
-
-| Topic | Layer | Notes |
-|---|---|---|
-| Triplestore selection | L1 | **ADR-001** — recommends Fuseki; **ADR-004** — supersedes with Oxigraph |
-| Semantic services engine selection | L2 | **ADR-002** — SHACL + reasoning + IRI dereferencing; **ADR-004** — updates for Oxigraph |
-| Mapping & virtualization engine | L3 | **ADR-003** — ONTOP vs. Morph-KGC; **ADR-004** — keeps Morph-KGC |
-| Vocabulary browser selection | L4 | **ADR-005** — recommends Hybrid Custom SPA + pylode |
-| Mapping-asset storage | L1/L3 | Where R2RML/OBDA/CSVW manifests live and how they are versioned |
-| SHACL validation policy | L2/L6 | Ingestion-gate vs. runtime policy (engine selected in ADR-002) |
-| Reasoning strategy | L2 | OWL profile choice, materialized vs. on-demand (engine selected in ADR-002) |
-| Vocabulary authoring UI | L4 | VocBench 3, Skosmos, alternatives (covered in ADR-005) |
-| Semantic tagging / KG-NLP | L2 | Annif and/or spaCy + DBpedia Spotlight as OSS substitutes for PoolParty's tagger |
-| IDS adapter | L5 | EDC vs. DSC vs. Trusted Connector; co-location with triplestore |
-| Ingestion pipeline | L6 | Current Python query-service; orchestration, idempotency, SHACL gating |
-| Identity & access control | L5/L7 | DAPS, FGAC enforcement layer (adapter vs. proxy) |
-| Deployment topology | L7 | Container layout, HA story under OSS constraints |
-
 ## References
 
 - David, Ivanov & Alexiev, *Raising the Role of Vocabulary Hubs for Semantic Data Interoperability in Dataspaces* (2024)
