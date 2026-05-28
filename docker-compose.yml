@@ -1,10 +1,11 @@
-# Eona Vocabulary Services — L1/L2 bootstrap
+# Eona Vocabulary Services — L1/L2/L4 bootstrap
 #
 # Oxigraph 0.5.8 (RocksDB persistent backend) — per ADR-004 §1.
-# Single service for now; API, mapping, virtualization layers added later.
+# Prez 4.23.6 — L4 generated explorer fasttrack — per ADR-005.
 #
 #   docker compose up -d
 #   curl http://localhost:7878/query --data-urlencode 'query=SELECT * WHERE { ?s ?p ?o } LIMIT 1'
+#   open http://localhost:8000/
 
 services:
   oxigraph:
@@ -40,6 +41,95 @@ services:
     # probes are the cleaner long-term answer).
     healthcheck:
       disable: true
+
+  # One-shot loader: fetches mobilityDCAT-AP ontology + SHACL shapes from GitHub
+  # and PUTs them into fixed Oxigraph named graphs. Idempotent — PUT on the
+  # Graph Store Protocol replaces each target graph, so re-runs do not duplicate
+  # triples. Exits 0 on success; "restart: no" keeps it from looping.
+  loader-mobility-dcat-ap:
+    build:
+      context: ./pipelines/load-mobility-dcat-ap
+    image: eona/loader-mobility-dcat-ap:dev
+    container_name: eona-loader-mobility-dcat-ap
+    restart: "no"
+    depends_on:
+      - oxigraph
+    environment:
+      OXIGRAPH_BASE: "http://oxigraph:7878"
+      SOURCE_BASE: "https://raw.githubusercontent.com/Eona-X/mobilityDCAT-AP/HEAD"
+      READY_TIMEOUT_S: "120"
+
+  # Prez — read-only Linked Data API + HTML explorer driven by SPARQL + profiles.
+  # ADR-005 fasttrack: provides catalog / vocabulary / concept / class pages and
+  # HTML/RDF content negotiation out of the box, pointing at Oxigraph.
+  #
+  # Spike scope: validate §3.5.6 baseline (term access, vocab access, conneg,
+  # multilingual labels) before committing to Option E over custom Option D.
+  prez:
+    image: ghcr.io/rdflib/prez:4.23.6
+    container_name: eona-prez
+    restart: unless-stopped
+    # Start only after the loader has populated Oxigraph and exited 0. Prez runs
+    # link generation against the SPARQL default graph at startup, so booting it
+    # against an empty store leaves catalogs/collections blank until a manual
+    # restart. service_completed_successfully gates Prez on the loader's exit 0.
+    depends_on:
+      oxigraph:
+        condition: service_started
+      loader-mobility-dcat-ap:
+        condition: service_completed_successfully
+    ports:
+      - "8000:8000"
+    environment:
+      SPARQL_REPO_TYPE: "remote"
+      SPARQL_ENDPOINT: "http://oxigraph:7878/query"
+      # SYSTEM_URI is the externally-visible base for IRIs Prez mints/links.
+      # Override in deployment; localhost is fine for the spike.
+      SYSTEM_URI: "http://localhost:8000"
+      LISTEN_PORT: "8000"
+      LOG_LEVEL: "INFO"
+
+  # Prez UI — Nuxt SPA built against the Prez API. Endpoint is baked at build
+  # time (Nuxt static generation), so the browser talks to Prez on the host
+  # port directly. Override the build arg if Prez is exposed elsewhere.
+  prez-ui:
+    build:
+      context: ./containers/prez-ui
+      args:
+        NUXT_PUBLIC_PREZ_API_ENDPOINT: "http://localhost:8000"
+        NUXT_PUBLIC_PREZ_AUTO_DETECT_HTML: "true"
+        NUXT_PUBLIC_PREZ_AUTO_DETECT_MARKDOWN: "true"
+    image: eona/prez-ui:dev
+    container_name: eona-prez-ui
+    restart: unless-stopped
+    depends_on:
+      - prez
+    ports:
+      - "3000:80"
+
+  # Integration tests — pytest against the live Prez API, parsing responses with
+  # pyoxigraph (same engine as the triplestore). Starts once both Prez and the UI
+  # are up, runs the suite, and exits; restart "no" keeps it from looping.
+  #
+  # Behind the "test" profile so a plain `docker compose up` is not gated on tests.
+  # Run them with:
+  #   docker compose --profile test up --build --abort-on-container-exit \
+  #       --exit-code-from tests tests
+  tests:
+    build:
+      context: ./tests
+    image: eona/vocab-tests:dev
+    container_name: eona-tests
+    profiles: ["test"]
+    restart: "no"
+    depends_on:
+      prez:
+        condition: service_started
+      prez-ui:
+        condition: service_started
+    environment:
+      PREZ_BASE: "http://prez:8000"
+      READY_TIMEOUT_S: "120"
 
 volumes:
   oxigraph-data:
